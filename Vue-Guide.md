@@ -106,8 +106,41 @@ components:{
 ```
 4、VUEX采用命名空间的写法，原因是避免命名重复
 
+5、声明周期顺序  
 
+```
+- components
+- props
+- data
+- computed
+- created
+- mounted
+- metods
+- filter
+- watch
+- destory
 
+```
+6、避免v-if 与 v-for 一起使用
+> 当 v-if 与 v-for 一起使用时，v-for 具有比 v-if 更高的优先级，这意味着 v-if 将分别重复运行于每个 v-for 循环中,所以不推荐v-if和v-for同时使用  
+> 推荐使用computed先将不符合条件的数据过滤出去
+
+```
+<template v-for="menu in menuLists">
+    <a-menu-item v-if="!menu.children || !menu.children.length" :key="menu.path">
+        <span>{{menu.meta['title']}}</span>
+    </a-menu-item>
+    <sub-menu v-else :menu="menu" :key="menu.path"></sub-menu>
+</template>
+
+//computed
+menuLists(){
+    return this.menus.filter((item)=>{
+      return !item.meta['hidden']
+    })
+}
+```
+7、v-for时必须添加key，除template
 
 
 
