@@ -1,4 +1,4 @@
-<h1 align="center">做一个有原则的前端</h1>
+<h1 align="center">做一个有原则的前端程序猿</h1>
 
 ## 前言
 
