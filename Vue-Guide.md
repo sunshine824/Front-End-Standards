@@ -151,7 +151,15 @@ menuLists(){
 //bad
 <div v-for="(item, index) in lists"></div>
 ```
+8、事件绑定  
 
+```
+//good
+<div @click="getMenu"></div>
+
+//bad
+<div v-on:click="getMenu"></div>
+```
 
 
 
