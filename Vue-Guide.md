@@ -140,8 +140,17 @@ menuLists(){
     })
 }
 ```
-7、v-for时必须添加key，除template
+7、v-for时必须添加key，除template  
+> 避免使用index作为key, 因为当数据减少时，index也会发生变化，会导致数据全部重新渲染
+> 尽量采用不变值，如该数据id
 
+```
+//good
+<div v-for="(item, index) in lists" :key="item.id"></div>
+
+//bad
+<div v-for="(item, index) in lists"></div>
+```
 
 
 
